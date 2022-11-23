@@ -2,13 +2,32 @@
 
 class Dbh {
 
-    private $servername = "localhost";
-    private $username = "root";
-    private $password = "";
-    private $dbname = "test_db";
+    protected function database_1(){
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "test_db";
 
-    protected function connect(){
-        $conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
+        $conn = new mysqli($servername, $username, $password, $dbname);
         return $conn;
     }
+
+    protected function database_2(){
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "test_db";
+
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        return $conn;
+    }
+
+
+    protected function connect(){
+        return $this->database_2();
+    }
+
+
+
+
 }
